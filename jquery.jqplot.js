@@ -3114,33 +3114,33 @@
 
                 var fb = this.fillBetween;
                  if(typeof fb.series1 == 'number'){
-+                    if(fb.fill&&fb.series1!==fb.series2&&fb.series1<seriesLength&&fb.series2<seriesLength&&series[fb.series1]._type==="line"&&series[fb.series2]._type==="line")
+                     if(fb.fill&&fb.series1!==fb.series2&&fb.series1<seriesLength&&fb.series2<seriesLength&&series[fb.series1]._type==="line"&&series[fb.series2]._type==="line")
                      this.doFillBetweenLines();
                  }
-+                else{
-+                    if(fb.series1 != null && fb.series2 != null){
-+                        var doFb = false;
-+                        if(fb.series1.length === fb.series2.length){
-+                            var tempSeries1 = 0;
-+                            var tempSeries2 = 0;
-+                            
-+                            for(var cnt = 0; cnt < fb.series1.length; cnt++){
-+                                tempSeries1 = fb.series1[cnt];
-+                                tempSeries2 = fb.series2[cnt];
-+                                if(tempSeries1!==tempSeries2&&tempSeries1<seriesLength&&tempSeries2<seriesLength&&series[tempSeries1]._type==="line"&&series[tempSeries2]._type==="line"){
-+                                    doFb = true;
-+                                }
-+                                else{
-+                                    doFb = false;
-+                                    break;
-+                                }
-+                            }
-+                        }
-+                        if(fb.fill && doFb){
-+                            this.doFillBetweenLines();
-+                        }
-+                    }
-+                }
+                else{
+                    if(fb.series1 != null && fb.series2 != null){
+                        var doFb = false;
+                        if(fb.series1.length === fb.series2.length){
+                            var tempSeries1 = 0;
+                            var tempSeries2 = 0;
+                            
+                            for(var cnt = 0; cnt < fb.series1.length; cnt++){
+                                tempSeries1 = fb.series1[cnt];
+                                tempSeries2 = fb.series2[cnt];
+                                if(tempSeries1!==tempSeries2&&tempSeries1<seriesLength&&tempSeries2<seriesLength&&series[tempSeries1]._type==="line"&&series[tempSeries2]._type==="line"){
+                                    doFb = true;
+                                }
+                                else{
+                                    doFb = false;
+                                    break;
+                                }
+                            }
+                        }
+                        if(fb.fill && doFb){
+                            this.doFillBetweenLines();
+                        }
+                    }
+                }
 
                 for (var i=0, l=$.jqplot.postDrawHooks.length; i<l; i++) {
                     $.jqplot.postDrawHooks[i].call(this);
